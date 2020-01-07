@@ -7,14 +7,18 @@ import styles from "../../styles";
 
 const ListUnit = props => {
 
-    return <TouchableOpacity onPress={() => props.navigation.navigate("Details")} >
+    const listData = props.listData;
+
+    console.log(listData);
+
+    return <TouchableOpacity onPress={() => props.navigation.navigate("Details", listData)} >
         <View>
             {/*  user unit */}
 
 
             <View style={styles.ListViewUnit}>
 
-                <Image source={{ uri: "https://www.thoughtco.com/thmb/FahkoQDT36pxZuQ33v_3avsGigU=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/focus-on-schoolgirls-raised-hand-in-classroom-with-teacher-1049284658-09b82d21082b489faa0c950fdc1ebff6.jpg" }} style={styles.cover} />
+                <Image source={{ uri: listData.url }} style={styles.cover} />
                 <View style={styles.content}>
 
                     <View style={{
@@ -24,7 +28,7 @@ const ListUnit = props => {
                         <Text style={[styles.text, styles.textSmall, { marginRight: 10 }]}>Roman Ridge School</Text>
                         <FontAwesome name="caret-right" size={18} />
                     </View>
-                    <Text style={[styles.text, styles.textLarge, styles.textBold, { marginBottom: 10 }]}>Senior Product Designer</Text>
+                    <Text style={[styles.text, styles.textLarge, styles.textBold, { marginBottom: 10 }]}> {listData.title} </Text>
                     <View style={styles.listDetails}>
 
                         <View style={styles.listItem}>
